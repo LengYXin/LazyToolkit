@@ -8,6 +8,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "temporary": "temporary",
+    "react": {
+      "url": "WTM-Front/wtm-template-react"
+    },
+    "vue": {
+      "url": "WTM-Front/wtm-template-react"
+    }
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,6 +33,7 @@
     "koa-server-http-proxy": "^0.1.0",
     "koa-static": "^5.0.0",
     "log-symbols": "^3.0.0",
+    "ora": "^3.4.0",
     "request": "^2.88.0",
     "semver": "^6.1.1"
   }

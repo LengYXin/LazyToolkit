@@ -5,11 +5,11 @@ program
     .usage('<command> [options]');
 
 program
-    .command('create <app-name>')
+    .command('create <project-name>')
     .description('创建新的项目')
     .action((name, cmd) => {
         const options = cleanArgs(cmd)
-        require('../lib/create')(name, options);
+        require('../lib/create').create(name, options);
     });
 program
     .command('server [options]')
