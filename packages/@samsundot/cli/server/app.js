@@ -16,7 +16,7 @@ class App{
         this.req_num = 0;
         this.port = port || 8765;
         console.log("@@@@", rootPath)
-        this.componentCreate = new componentCreate(rootPath, this.wtmfront_config);
+        // this.componentCreate = new componentCreate(rootPath, this.wtmfront_config);
     }
 
     run(){
