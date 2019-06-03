@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/*"
+    "packages/@samsundot/*"
   ],
   "version": "0.0.0"
 }
