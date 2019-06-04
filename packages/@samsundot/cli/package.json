@@ -29,6 +29,8 @@
     "inquirer": "^6.3.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-server-http-proxy": "^0.1.0",
     "koa-static": "^5.0.0",
