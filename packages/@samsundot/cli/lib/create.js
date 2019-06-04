@@ -5,6 +5,8 @@ const child_process = require('child_process')
 const download = require('../utils/download');
 const log = require('../utils/log');
 const path = require('path');
+const lodash = require('lodash');
+
 const rootPath = process.cwd();
 const packageConfig = require('../package');
 class CreateProject {
@@ -20,17 +22,21 @@ class CreateProject {
             install: null,
         }
         // 项目根路径
-        const projectPath = path.join(rootPath, name);
-        // 判断当前路径是否为空
-        const exists = await fs.pathExists(projectPath);
-        if (exists) {
-            log.error(`已经存在 项目 ${name}`);
-        } else {
-            const options = await this.initOptions();
-            this.options = { ...this.options, ...options };
-            await this.download(projectPath);
-            console.log("TCL: CreateProject -> create -> this.options", this.options)
-            log.success("成功")
+        this.projectPath = path.join(rootPath, name);
+        try {
+            // 判断当前路径是否为空
+            if (fs.pathExistsSync(this.projectPath)) {
+                throw `已经存在 项目 ${name}`;
+            } else {
+                const options = await this.initOptions();
+                this.options = { ...this.options, ...options };
+                await this.download();
+                this.update();
+                await this.install();
+                log.success("成功")
+            }
+        } catch (error) {
+            log.error(error);
         }
     }
     /**
@@ -89,18 +95,68 @@ class CreateProject {
         return inquirer.prompt(prompts)
     }
     /**
-     * 创建项目
-     * @param {*} projectPath 项目根路径
+     * 下载git项目
+     * @param {*} projectPath 
      */
-    async  download(projectPath) {
-        const gitUrl = packageConfig.publishConfig[this.options.template].url;
-        console.log("TCL: CreateProject -> download -> gitUrl", gitUrl)
-        return
-        return download(gitUrl, projectPath)
+    async  download(projectPath = this.projectPath) {
+        const gitUrl = lodash.get(packageConfig, `publishConfig[${this.options.template}].url`);
+        if (gitUrl) {
+            return download(gitUrl, projectPath)
+        } else {
+            throw "获取 下载地址失败";
+        }
     }
-    async install() {
+    /**
+     * 修改项目配置
+     * @param {*} projectPath 
+     */
+    async  update(projectPath = this.projectPath) {
+        const packagePath = path.join(projectPath, 'package.json');
+        if (fs.pathExistsSync(packagePath)) {
+            const packageObj = fs.readJsonSync(packagePath);
+            packageObj.name = this.options.projectName;
+            packageObj.version = "1.0.0";
+            fs.writeJsonSync(packagePath, packageObj, { spaces: 4 });
+        }
+    }
+    /**
+     * 安装依赖
+     * @param {} projectPath 
+     */
+    async install(projectPath = this.projectPath) {
+        if (!this.options.install) {
+            return
+        }
+        let spawn = null;
+        if (this.shouldUseYarn()) {
+            spawn = child_process.spawnSync(
+                "yarn",
+                ['install'],
+                {
+                    cwd: projectPath,
+                    stdio: 'inherit',
+                    shell: true,
+                }
+            )
+        } else {
+            // npm
+            spawn = child_process.spawnSync(
+                "npm",
+                ['install --registry=https://registry.npm.taobao.org/'],
+                {
+                    cwd: projectPath,
+                    stdio: 'inherit',
+                    shell: true,
+                }
+            )
+        }
+        if (spawn.status == 1) {
+            log.error(`安装项目依赖失败，请自行重新安装！`)
+        }
+    }
+    shouldUseYarn() {
         try {
-            child_process.execSync('yarn --version', { stdio: 'ignore' })
+            const exec = child_process.execSync('yarn --version', { stdio: 'ignore' })
             return true
         } catch (e) {
             return false
