@@ -8,6 +8,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "temporary": "temporary",
+    "react": {
+      "url": "WTM-Front/wtm-template-react"
+    },
+    "vue": {
+      "url": "WTM-Front/wtm-template-react"
+    }
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
