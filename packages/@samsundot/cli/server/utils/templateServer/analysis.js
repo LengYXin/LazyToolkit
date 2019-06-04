@@ -1,7 +1,7 @@
 const Handlebars = require("handlebars");
 const fsExtra = require('fs-extra');
 const path = require("path");
-const log = require('../../lib/log');
+const log = require('../../../utils/log.js');
 const fs = require('fs');
 
 /**

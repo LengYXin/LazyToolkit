@@ -270,7 +270,7 @@ caw@^2.0.1:
     tunnel-agent "^0.6.0"
     url-to-options "^1.0.1"
 
-chalk@^2.4.2:
+chalk@^2.0.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npm.taobao.org/chalk/download/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha1-zUJUFnelQzPPVBpJEIwUMrRMlCQ=
@@ -301,6 +301,11 @@ cli-cursor@^2.1.0:
   dependencies:
     restore-cursor "^2.0.0"
 
+cli-spinners@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/cli-spinners/download/cli-spinners-2.1.0.tgz#22c34b4d51f573240885b201efda4e4ec9fff3c7"
+  integrity sha1-IsNLTVH1cyQIhbIB79pOTsn/88c=
+
 cli-width@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npm.taobao.org/cli-width/download/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
@@ -312,6 +317,11 @@ clone-response@1.0.2:
   integrity sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws=
   dependencies:
     mimic-response "^1.0.0"
+
+clone@^1.0.2:
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/clone/download/clone-1.0.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fclone%2Fdownload%2Fclone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
+  integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
 co-body@^6.0.0:
   version "6.0.0"
@@ -517,6 +527,13 @@ deep-equal@~1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/deep-equal/download/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
   integrity sha1-9dJgKStmDghO/0zbyfCK0yR0SLU=
+
+defaults@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/defaults/download/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
+  integrity sha1-xlYFHpgX2f8I7YgUd/P+QBnz730=
+  dependencies:
+    clone "^1.0.2"
 
 define-property@^0.2.5:
   version "0.2.5"
@@ -1331,7 +1348,7 @@ json-schema@0.2.3:
   resolved "https://registry.npm.taobao.org/json-schema/download/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
   integrity sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
 
-json-stringify-safe@~5.0.1:
+json-stringify-safe@5, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.npm.taobao.org/json-stringify-safe/download/json-stringify-safe-5.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjson-stringify-safe%2Fdownload%2Fjson-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
@@ -1417,10 +1434,26 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
-koa-is-json@^1.0.0:
+koa-is-json@1, koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/koa-is-json/download/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
   integrity sha1-JzwH7c3Ljfaiwat9We52SRRR7BQ=
+
+koa-json@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/koa-json/download/koa-json-2.0.2.tgz#36af14e6ea1f5d646d7c44a285701c6f85a4fde4"
+  integrity sha1-Nq8U5uofXWRtfESihXAcb4Wk/eQ=
+  dependencies:
+    koa-is-json "1"
+    streaming-json-stringify "3"
+
+koa-onerror@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npm.taobao.org/koa-onerror/download/koa-onerror-4.1.0.tgz#7949c7651941e67b11813bf1fad03c2d34470b1c"
+  integrity sha1-eUnHZRlB5nsRgTvx+tA8LTRHCxw=
+  dependencies:
+    escape-html "^1.0.3"
+    stream-wormhole "^1.1.0"
 
 koa-router@^7.4.0:
   version "7.4.0"
@@ -1499,6 +1532,13 @@ lodash@^4.17.11, lodash@^4.17.5:
   version "4.17.11"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
+
+log-symbols@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/log-symbols/download/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
+  integrity sha1-V0Dhxdbw39pK2TI7UzIQfva0xAo=
+  dependencies:
+    chalk "^2.0.1"
 
 log-symbols@^3.0.0:
   version "3.0.0"
@@ -1742,6 +1782,18 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
+ora@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npm.taobao.org/ora/download/ora-3.4.0.tgz#bf0752491059a3ef3ed4c85097531de9fdbcd318"
+  integrity sha1-vwdSSRBZo+8+1MhQl1Md6f280xg=
+  dependencies:
+    chalk "^2.4.2"
+    cli-cursor "^2.1.0"
+    cli-spinners "^2.0.0"
+    log-symbols "^2.2.0"
+    strip-ansi "^5.2.0"
+    wcwidth "^1.0.1"
+
 os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/os-tmpdir/download/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
@@ -1894,7 +1946,7 @@ raw-body@^2.3.3:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-readable-stream@^2.0.0, readable-stream@^2.3.0, readable-stream@^2.3.5:
+readable-stream@2, readable-stream@^2.0.0, readable-stream@^2.3.0, readable-stream@^2.3.5:
   version "2.3.6"
   resolved "https://registry.npm.taobao.org/readable-stream/download/readable-stream-2.3.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freadable-stream%2Fdownload%2Freadable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha1-sRwn2IuP8fvgcGQ8+UsMea4bCq8=
@@ -2186,6 +2238,19 @@ static-extend@^0.1.1:
   resolved "https://registry.npm.taobao.org/statuses/download/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
+stream-wormhole@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/stream-wormhole/download/stream-wormhole-1.1.0.tgz#300aff46ced553cfec642a05251885417693c33d"
+  integrity sha1-MAr/Rs7VU8/sZCoFJRiFQXaTwz0=
+
+streaming-json-stringify@3:
+  version "3.1.0"
+  resolved "https://registry.npm.taobao.org/streaming-json-stringify/download/streaming-json-stringify-3.1.0.tgz#80200437a993cc39c4fe00263b7b3b903ac87af5"
+  integrity sha1-gCAEN6mTzDnE/gAmO3s7kDrIevU=
+  dependencies:
+    json-stringify-safe "5"
+    readable-stream "2"
+
 strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/strict-uri-encode/download/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
@@ -2213,7 +2278,7 @@ strip-ansi@^4.0.0:
   dependencies:
     ansi-regex "^3.0.0"
 
-strip-ansi@^5.1.0:
+strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npm.taobao.org/strip-ansi/download/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
   integrity sha1-jJpTb+tq/JYr36WxBKUJHBrZwK4=
@@ -2461,6 +2526,13 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+wcwidth@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/wcwidth/download/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
+  integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
+  dependencies:
+    defaults "^1.0.3"
 
 wordwrap@~0.0.2:
   version "0.0.3"

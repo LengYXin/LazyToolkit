@@ -20,10 +20,13 @@
     "inquirer": "^6.3.1",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-server-http-proxy": "^0.1.0",
     "koa-static": "^5.0.0",
     "log-symbols": "^3.0.0",
+    "ora": "^3.4.0",
     "request": "^2.88.0",
     "semver": "^6.1.1"
   }

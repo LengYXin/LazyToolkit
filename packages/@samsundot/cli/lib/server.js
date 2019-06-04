@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const semver = require('semver');
 const detect = require('detect-port');
+const app = require("../server/app");
+
 module.exports = (options) => {
     options = { port: 8000, ...options };
     const port = options.port;
@@ -14,7 +16,8 @@ module.exports = (options) => {
         // } else {
         //     console.log(`port: ${port} was occupied, try port: ${_port}`);
         // }
-        console.log("TCL: _port", _port)
+        // console.log("TCL: _port", _port)
+        new app(_port).run();
     });
 }
 
